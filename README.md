@@ -1,7 +1,7 @@
 # dcs-api-gateway
 dcs-api-gateway is router for the incoming requests as well as user authorization and authentication provider
 
-# How can Test this 
+# How to deploy  
 
 ## Make Infrastructure ready with following
 
@@ -34,11 +34,15 @@ java -jar -Dserver.port=9999  dcs-client-0.0.1-SNAPSHOT.jar
 
 01. DCS-Controller WEB UI
 
+```
   http://localhost:8000/
+```
 
 02. DCS-API-Gateway WEB UI
 
- *. http://anji-pc:8001/DCSCLIENT1/run-load-job/devi1 
+Case1:
+```
+  http://anji-pc:8001/DCSCLIENT1/run-load-job/devi1 
   
   >> Above request start loading data from kafka server on topic devi1 with group devi1, You can find the logs on console
   
@@ -51,12 +55,15 @@ java -jar -Dserver.port=9999  dcs-client-0.0.1-SNAPSHOT.jar
   bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --list
 
   bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --group topic --describe
-  
-
- *. http://anji-pc:8001/dcsclient1/run-extract-job/devi1/dummy2
+```  
+Case2:
+```
+  http://anji-pc:8001/dcsclient1/run-extract-job/devi1/dummy2
 
   >> Above request can directly routs to specific microservice requesterd with DCS controller 
-
+  
+  Check the data availability on postgres
+```
 
 ### Reference:
 http://appsdeveloperblog.com/zuul-api-gateway-tutorial/
